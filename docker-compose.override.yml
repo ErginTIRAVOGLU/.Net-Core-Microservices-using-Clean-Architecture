@@ -79,20 +79,20 @@ services:
       - "9000:8080"
     
   
- # basket.api:
- #   container_name: basket.api
- #   environment:
- #     - ASPNETCORE_ENVIRONMENT=Development
-##      - ASPNETCORE_URLS=http://*:9001
- #     - "CacheSettings__ConnectionString=basketdb:6379"
- #     - "GrpcSettings__DiscountUrl=http://discount.api"
- #     - "EventBusSettings__HostAddress=amqp://guest:guest@rabbitmq:5672"
- #     - "ElasticConfiguration__Uri=http://elasticsearch:9200"
- #   depends_on:
- #     - basketdb
- #     - rabbitmq
- #   ports:
- #     - "9001:80"
+  basket.api:
+    container_name: basket.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+#      - ASPNETCORE_URLS=http://*:9001
+      - "CacheSettings__ConnectionString=basketdb:6379"
+      - "GrpcSettings__DiscountUrl=http://discount.api"
+      - "EventBusSettings__HostAddress=amqp://guest:guest@rabbitmq:5672"
+      - "ElasticConfiguration__Uri=http://elasticsearch:9200"
+    depends_on:
+      - basketdb
+      - rabbitmq
+    ports:
+      - "9001:8080"
     
         
  # discount.api:

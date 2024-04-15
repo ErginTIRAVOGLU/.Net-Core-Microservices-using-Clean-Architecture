@@ -42,11 +42,13 @@ services:
       context: .
       dockerfile: src/Services/Catalog/Catalog.API/Dockerfile
       
-  #basket.api:
-  #  image: ${DOCKER_REGISTRY-}basketapi
-  #  build:
-  #    context: .
-  #    dockerfile: Services/Basket/Basket.API/Dockerfile   
+  basket.api:
+    image: ${DOCKER_REGISTRY-}basketapi
+    networks:
+      - shopwebservicenetwork
+    build:
+      context: .
+      dockerfile: src/Services/Basket/Basket.API/Dockerfile   
       
   #discount.api:
   #  image: ${DOCKER_REGISTRY-}discountapi

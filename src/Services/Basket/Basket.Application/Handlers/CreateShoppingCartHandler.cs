@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace Basket.Application.Handlers
 {
-    public class CreateShoppingCartCommandHandler : IRequestHandler<CreateShoppingCartCommand, ShoppingCartResponse>
+    public class CreateShoppingCartHandler : IRequestHandler<CreateShoppingCartCommand, ShoppingCartResponse>
     {
         private readonly IBasketRepository _repository;
 
-        public CreateShoppingCartCommandHandler(IBasketRepository repository)
+        public CreateShoppingCartHandler(IBasketRepository repository)
         {
             _repository = repository;
         }

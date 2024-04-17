@@ -39,7 +39,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapGrpcService<DiscountService>();
     endpoints.MapGet("/", async context =>
     {
-        await context.Response.WriteAsync("Communacation with gRPC endpoints must be made through a gRPC client.")
+        await context.Response.WriteAsync("Communication with gRPC endpoints must be made through a gRPC client.");
     });
 });
 

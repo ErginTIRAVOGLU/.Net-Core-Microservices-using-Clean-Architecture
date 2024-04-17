@@ -95,17 +95,17 @@ services:
       - "9001:8080"
     
         
- # discount.api:
- #   container_name: discount.api
- #   environment:
- #     - ASPNETCORE_ENVIRONMENT=Development
- #     - "DatabaseSettings__ConnectionString=Server=discountdb;Port=5432;Database=DiscountDb;User Id=admin;Password=Password@1;"
- #     - "ElasticConfiguration__Uri=http://elasticsearch:9200"
-##      - ASPNETCORE_URLS=http://*:9002          
- #   depends_on:
- #     - discountdb
- #   ports:
- #     - "9002:80"
+  discount.api:
+    container_name: discount.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings__ConnectionString=Server=discountdb;Port=5432;Database=DiscountDb;User Id=admin;Password=Password@1;"
+      - "ElasticConfiguration__Uri=http://elasticsearch:9200"
+#      - ASPNETCORE_URLS=http://*:9002          
+    depends_on:
+      - discountdb
+    ports:
+      - "9002:8080"
     
         
  # ordering.api:

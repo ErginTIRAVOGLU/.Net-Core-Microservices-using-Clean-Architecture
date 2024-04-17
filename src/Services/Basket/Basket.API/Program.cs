@@ -11,6 +11,8 @@ using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.StackExchangeRedis;
 using Basket.Application.Commands;
 using Basket.Application.Handlers;
+using Basket.Application.GrpcService;
+using Discount.Grpc.Protos;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +28,8 @@ builder.Services.AddSwaggerGen(c =>
 
 
 builder.Services.AddAutoMapper(typeof(Program));
-
+builder.Services.AddScoped<DiscountGrpcService>();
+builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(o => o.Address = new Uri(builder.Configuration["GrpcSettings:DiscountUrl"]));
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure();
 builder.Services.AddMediatR(cfg => { 
